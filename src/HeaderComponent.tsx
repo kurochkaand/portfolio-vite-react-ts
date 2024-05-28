@@ -1,11 +1,6 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./HeaderComponent.css";
 
 function HeaderComponent() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
       <svg xmlns="http://www.w3.org/2000/svg" className="d-none">
@@ -101,5 +96,4 @@ function HeaderComponent() {
     </>
   );
 }
-
 export default HeaderComponent;
