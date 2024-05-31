@@ -1,4 +1,4 @@
-import React, { useEffect, useState, ChangeEvent, DragEvent, FC } from "react";
+import { useEffect, useState, ChangeEvent, DragEvent, FC } from "react";
 import { AiOutlineCheckCircle, AiOutlineCloudUpload } from "react-icons/ai";
 import { MdClear } from "react-icons/md";
 import "./DragNdrop.css";
