@@ -37,6 +37,20 @@ const DragNdrop: FC<DragNdropProps> = ({ onFilesSelected, width, height }) => {
     onFilesSelected(files);
   }, [files, onFilesSelected]);
 
+  useEffect(() => {
+    if (files.length > 0) {
+      files.forEach((file) => {
+        const reader = new FileReader();
+        reader.onload = (event: ProgressEvent<FileReader>) => {
+          if (event.target && typeof event.target.result === "string") {
+            console.log(event.target.result);
+          }
+        };
+        reader.readAsText(file);
+      });
+    }
+  }, [files]);
+
   return (
     <section className="drag-drop" style={{ width, height }}>
       <div
