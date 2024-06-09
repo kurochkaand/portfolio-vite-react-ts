@@ -37,26 +37,24 @@ const DragNdrop: FC<DragNdropProps> = ({ onFilesSelected, width, height }) => {
     onFilesSelected(files);
   }, [files, onFilesSelected]);
 
-  useEffect(() => {
-    if (files.length > 0) {
-      files.forEach((file) => {
-        const reader = new FileReader();
-        reader.onload = (event: ProgressEvent<FileReader>) => {
-          if (event.target && typeof event.target.result === "string") {
-            console.log(event.target.result);
-          }
-        };
-        reader.readAsText(file);
-      });
-    }
-  }, [files]);
+  // useEffect(() => {
+  //   if (files.length > 0) {
+  //     files.forEach((file) => {
+  //       const reader = new FileReader();
+  //       reader.onload = (event: ProgressEvent<FileReader>) => {
+  //         if (event.target && typeof event.target.result === "string") {
+  //           console.log(event.target.result);
+  //         }
+  //       };
+  //       reader.readAsText(file);
+  //     });
+  //   }
+  // }, [files]);
 
   return (
     <section className="drag-drop" style={{ width, height }}>
       <div
-        className={`document-uploader ${
-          files.length > 0 ? "upload-box active" : "upload-box"
-        }`}
+        className={`document-uploader ${files.length > 0 ? "upload-box active" : "upload-box"}`}
         onDrop={handleDrop}
         onDragOver={(event) => event.preventDefault()}
       >
@@ -65,20 +63,10 @@ const DragNdrop: FC<DragNdropProps> = ({ onFilesSelected, width, height }) => {
             <AiOutlineCloudUpload />
             <div>
               <p>Drag and drop your files here</p>
-              <p>
-                Limit 15MB per file. Supported files: .PDF, .DOCX, .PPTX, .TXT,
-                .XLSX
-              </p>
+              <p>Limit 15MB per file. Supported files: .PDF, .DOCX, .PPTX, .TXT, .XLSX</p>
             </div>
           </div>
-          <input
-            type="file"
-            hidden
-            id="browse"
-            onChange={handleFileChange}
-            accept=".pdf,.docx,.pptx,.txt,.xlsx"
-            multiple
-          />
+          <input type="file" hidden id="browse" onChange={handleFileChange} multiple />
           <label htmlFor="browse" className="browse-btn">
             Browse files
           </label>
@@ -103,9 +91,7 @@ const DragNdrop: FC<DragNdropProps> = ({ onFilesSelected, width, height }) => {
 
         {files.length > 0 && (
           <div className="success-file">
-            <AiOutlineCheckCircle
-              style={{ color: "#6DC24B", marginRight: 1 }}
-            />
+            <AiOutlineCheckCircle style={{ color: "#6DC24B", marginRight: 1 }} />
             <p>{files.length} file(s) selected</p>
           </div>
         )}

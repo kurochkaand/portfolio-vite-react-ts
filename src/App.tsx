@@ -2,7 +2,7 @@ import HeaderComponent from "./HeaderComponent";
 import FooterComponent from "./FooterComponent";
 import SpectraPlotComponent from "./SpectraPlotComponent";
 import DragNdrop from "./DragNdrop";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function App() {
   const [files, setFiles] = useState<File[]>([]);
