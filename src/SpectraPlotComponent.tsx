@@ -5,18 +5,22 @@ import { convert as convertJcamp } from "jcampconverter";
 
 interface InfraredZoomablePlotProps {
   files: File[] | undefined;
+  width: number;
+  height: number;
 }
 
 export default function InfraredZoomablePlot(props: InfraredZoomablePlotProps) {
   return (
     <PlotController>
-      <ZoomablePlot files={props.files} />
+      <ZoomablePlot files={props.files} width={props.width} height={props.height} />
     </PlotController>
   );
 }
 
 interface ZoomablePlotProps {
   files: File[] | undefined;
+  width: number;
+  height: number;
 }
 
 function ZoomablePlot(props: ZoomablePlotProps) {
@@ -42,7 +46,7 @@ function ZoomablePlot(props: ZoomablePlotProps) {
   }, [props.files]);
 
   return (
-    <Plot width={800} height={300}>
+    <Plot width={props.width} height={props.height}>
       <LineSeries data={data} xAxis="x" yAxis="y" />
       <Axis id="x" position="bottom" label="Wavenumber (cm-1)" displayPrimaryGridLines flip={true} />
       <Axis id="y" position="left" label="Transmitance" displayPrimaryGridLines />

@@ -5,11 +5,9 @@ import "./DragNdrop.css";
 
 interface DragNdropProps {
   onFilesSelected: (files: File[]) => void;
-  width: string | number;
-  height: string | number;
 }
 
-const DragNdrop: FC<DragNdropProps> = ({ onFilesSelected, width, height }) => {
+const DragNdrop: FC<DragNdropProps> = ({ onFilesSelected }) => {
   const [files, setFiles] = useState<File[]>([]);
 
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -37,22 +35,8 @@ const DragNdrop: FC<DragNdropProps> = ({ onFilesSelected, width, height }) => {
     onFilesSelected(files);
   }, [files, onFilesSelected]);
 
-  // useEffect(() => {
-  //   if (files.length > 0) {
-  //     files.forEach((file) => {
-  //       const reader = new FileReader();
-  //       reader.onload = (event: ProgressEvent<FileReader>) => {
-  //         if (event.target && typeof event.target.result === "string") {
-  //           console.log(event.target.result);
-  //         }
-  //       };
-  //       reader.readAsText(file);
-  //     });
-  //   }
-  // }, [files]);
-
   return (
-    <section className="drag-drop" style={{ width, height }}>
+    <section className="drag-drop">
       <div
         className={`document-uploader ${files.length > 0 ? "upload-box active" : "upload-box"}`}
         onDrop={handleDrop}
