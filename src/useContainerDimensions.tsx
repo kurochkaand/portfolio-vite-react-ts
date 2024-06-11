@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, RefObject } from "react";
+import { useState, useEffect, RefObject } from "react";
 
 // Define the type for the dimensions
 interface Dimensions {
@@ -10,7 +10,10 @@ interface Dimensions {
 type MyRef = RefObject<HTMLElement>;
 
 export const useContainerDimensions = (myRef: MyRef): Dimensions => {
-  const [dimensions, setDimensions] = useState<Dimensions>({ width: 0, height: 0 });
+  const [dimensions, setDimensions] = useState<Dimensions>({
+    width: 0,
+    height: 0,
+  });
 
   useEffect(() => {
     const getDimensions = (): Dimensions => ({
