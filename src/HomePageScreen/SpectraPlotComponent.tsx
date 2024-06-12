@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { xyToXYObject } from "ml-spectra-processing";
 import {
   Annotations,
   Axis,
@@ -8,7 +7,6 @@ import {
   PlotController,
   useRectangularZoom,
 } from "react-plot";
-import { convert as convertJcamp } from "jcampconverter";
 
 interface InfraredZoomablePlotProps {
   files: File[] | undefined;
@@ -44,7 +42,9 @@ function ZoomablePlot(props: ZoomablePlotProps) {
   const zoom = useRectangularZoom();
 
   useEffect(() => {
-    console.log(typeof data);
+    if (props.files && props.files.length > 0) {
+      console.log(JSON.stringify(data[0].slice(0, 10)));
+    }
   }, [data]);
 
   useEffect(() => {
@@ -53,13 +53,16 @@ function ZoomablePlot(props: ZoomablePlotProps) {
         const dataArray: SeriesPoint[][] = await Promise.all(
           props.files.map(async (item) => {
             const text = await item.text();
-            const jcampData = convertJcamp(text).flatten[0].spectra[0].data;
-            return xyToXYObject(jcampData).map(
-              (point: { x: number; y: number }) => ({
-                x: point.x,
-                y: point.y,
-              })
-            );
+            const lines = text.split("\r\n");
+            const coordinates: SeriesPoint[] = [];
+            lines.map((line) => {
+              const [x, y] = line.split("\t").map(parseFloat);
+              if (!isNaN(x) && !isNaN(y)) {
+                coordinates.push({ x, y });
+              }
+            });
+
+            return coordinates;
           })
         );
         setData(dataArray);
@@ -81,7 +84,7 @@ function ZoomablePlot(props: ZoomablePlotProps) {
         position="bottom"
         label="Wavenumber (cm-1)"
         displayPrimaryGridLines
-        flip={true}
+        flip={false}
       />
       <Axis
         id="y"
