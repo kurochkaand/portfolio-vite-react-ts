@@ -12,8 +12,8 @@ function HomePage() {
   const { width, height } = useContainerDimensions(componentRef);
 
   useEffect(() => {
-    console.log(`width is ${width}`);
-    console.log(`height is ${height}`);
+    // console.log(`width is ${width}`);
+    // console.log(`height is ${height}`);
   }, [width, height]);
   return (
     <Container>
