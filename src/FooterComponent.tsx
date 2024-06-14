@@ -1,5 +1,5 @@
 import "./FooterComponent.css";
-import drAK from "./assets/drAK.svg";
+import Drak from "./assets/Drak.svg";
 
 function FooterComponent() {
   return (
@@ -63,7 +63,10 @@ function FooterComponent() {
             fill="#fff"
             d="M0.137 0H23.863A0.137 0.137 0 0 1 24 0.137V23.863A0.137 0.137 0 0 1 23.863 24H0.137A0.137 0.137 0 0 1 0 23.863V0.137A0.137 0.137 0 0 1 0.137 0z"
           />
-          <path fill="#a6ce39" d="M24 12A12 12 0 0 1 12 24A12 12 0 0 1 0 12A12 12 0 0 1 24 12z" />
+          <path
+            fill="#a6ce39"
+            d="M24 12A12 12 0 0 1 12 24A12 12 0 0 1 0 12A12 12 0 0 1 24 12z"
+          />
           <path
             d="M8.109 17.438h-1.453V7.406h1.453zm2.109 -10.031h3.891c3.703 0 5.344 2.672 5.344 5.016 0 2.578 -2.016 5.016 -5.344 5.016h-3.938zm1.453 8.766h2.297c3.281 0 4.031 -2.484 4.031 -3.703 0 -2.016 -1.266 -3.703 -4.078 -3.703h-2.203zm-3.328 -10.828c0 0.516 -0.422 0.938 -0.938 0.938s-0.938 -0.422 -0.938 -0.938a0.938 0.938 0 0 1 0.938 -0.938c0.516 0 0.938 0.422 0.938 0.938"
             fill="#fff"
@@ -80,36 +83,51 @@ function FooterComponent() {
       <div className="container">
         <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 px-5 mt-4 border-top">
           <div className="col-md-4 d-flex align-items-center">
-            <a href="/" className="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-              <img src={drAK} width={100}></img>
+            <a
+              href="/"
+              className="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1"
+            >
+              <img src={Drak} alt="Drak"></img>
             </a>
             <span className="mb-3 mb-md-0 text-muted">&copy; 2024</span>
           </div>
 
           <ul className="nav col-md-4 justify-content-end list-unstyled d-flex ">
             <li className="ms-3">
-              <a className="text-muted" href="https://www.linkedin.com/in/andrii-kurochka-107a13108">
+              <a
+                className="text-muted"
+                href="https://www.linkedin.com/in/andrii-kurochka-107a13108"
+              >
                 <svg width="24" height="24">
                   <use xlinkHref="#linkedin" />
                 </svg>
               </a>
             </li>
             <li className="ms-3">
-              <a className="text-muted" href="https://www.researchgate.net/profile/Andrii-Kurochka">
+              <a
+                className="text-muted"
+                href="https://www.researchgate.net/profile/Andrii-Kurochka"
+              >
                 <svg width="24" height="24">
                   <use xlinkHref="#researchgate" />
                 </svg>
               </a>
             </li>
             <li className="ms-3">
-              <a className="text-muted" href="https://www.facebook.com/profile.php?id=100010251017768">
+              <a
+                className="text-muted"
+                href="https://www.facebook.com/profile.php?id=100010251017768"
+              >
                 <svg width="24" height="24">
                   <use xlinkHref="#facebook" />
                 </svg>
               </a>
             </li>
             <li className="ms-3">
-              <a className="text-muted" href="https://orcid.org/0000-0001-9986-3559">
+              <a
+                className="text-muted"
+                href="https://orcid.org/0000-0001-9986-3559"
+              >
                 <svg width="24" height="24">
                   <use xlinkHref="#orcid" />
                 </svg>
