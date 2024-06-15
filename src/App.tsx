@@ -1,6 +1,5 @@
 import HeaderComponent from "./HeaderComponent";
 import FooterComponent from "./FooterComponent";
-
 import HomePage from "./HomePageScreen/HomePage";
 
 function App() {
