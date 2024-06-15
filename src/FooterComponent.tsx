@@ -1,5 +1,5 @@
 import "./FooterComponent.css";
-import Drak from "./assets/Drak.svg";
+//import Drak from "./assets/Drak.svg";
 
 function FooterComponent() {
   return (
@@ -87,7 +87,7 @@ function FooterComponent() {
               href="/"
               className="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1"
             >
-              <img src={Drak} alt="Drak"></img>
+              {/* <img src={Drak} alt="Drak"></img> */}
             </a>
             <span className="mb-3 mb-md-0 text-muted">&copy; 2024</span>
           </div>
